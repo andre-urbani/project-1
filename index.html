@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,32 @@
   <script src="scripts/app.js"></script>
   <link rel="stylesheet" href="styles/main.css">
   <title>Project 1 - Space Invaders</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Freckle+Face&display=swap" rel="stylesheet"> -->
 </head>
-<body>
 
+<body id="body">
 
+  <p class="blinkme" id="game-over">GAME OVER!</p>
+  <p class="blinkme" id="win">YOU WIN!</p>
   <div id="left-side">
-      <div>Space Invaders</div>
-      <div>Score: <span id="score">0</span>  </div>
+    <div class="logo-left">SPACE<br class="break">INVADERS</div>
+    <div id="score-div">SCORE <br class="break"><span id="score">0</span> </div>
   </div>
 
   <div class="grid">
-    
-    <div class="enter">Press Enter to play</div> 
-    <!-- <h1>GAME OVER!</h1>
-    <h1 class="win">YOU WIN!</h1> -->
-  
+    <section>
+      <div id="blinkme" class="enter">Press Enter to play</div>
+    </section>
   </div>
 
   <div id="right-side">
-<div>Lives: <span id="lives">3</span></div>
-      <button id="start">start</button>
+    <div class="logo-right">SPACE<br class="break">INVADERS</div>
+    <div id="lives-div">LIVES<br class="break"><span id="lives">3</span></div>
+
   </div>
 
-  
+
 </body>
+
 </html>

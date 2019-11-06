@@ -8,11 +8,19 @@ body {
   height: 100vh;
   justify-content: center;
   margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  color: rgb(14, 186, 243);
+  background-color: black;
+  /* text-shadow: 2px 0 0 rgb(125, 212, 241); */
+  text-shadow: 2px 0 0 rgb(241, 172, 67);
+  /* font-family: 'Freckle Face', cursive; */
 }
 
 .grid {
+  background-image: url(http://giphygifs.s3.amazonaws.com/media/FlodpfQUBSp20/giphy.gif);
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(201, 81, 1, 0.5);
+  box-shadow: 0 0 20px 0 rgb(14, 186, 243);
+  margin: 0px 35px;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -20,6 +28,7 @@ body {
   justify-content: center;
   max-height: 800px;
   max-width: 800px;
+  border-radius: 20px;
 }
 
 .grid div {
@@ -36,25 +45,75 @@ body {
   background-position-y: 0;
 }
 
+.grid div.explosion {
+  background-image: url(../images/kisspng-spaceshiptwo-spacecraft-sprite-spaceshipone-portab-space-war-google-playampaposde-uygulamalar-5bd6a481273989.3786541515407934731607.png);
+  background-size: 100%;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
 .grid div.aliens {
-  background-image: url(../images/space-invaders-sprites-png-space-invaders-galaga-c-e1204f18dbba3540.png);
+  background-image: url(../images/1ST\ FRAME.PNG);
   background-size: 100%;
   background-position-x: 0;
   background-position-y: 0;
 }
 
 .grid div.bullet {
-  background-color: orange; 
+  background-image: url(../images/laser-sprite-png-6-original.png);
   background-size: 100%;
   background-position-x: 0;
   background-position-y: 0;
 }
 
 .grid div.bomb {
-  background-color: rgb(63, 62, 62); 
+  background-image: url(../images/laser-sprite-png-8.png);
   background-size: 100%;
   background-position-x: 0;
   background-position-y: 0;
+}
+
+
+
+button:focus {
+  outline: none;
+}
+
+h1 {
+  font-size: 200px;
+}
+
+
+
+.enter {
+  font-size: 30px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.logo-left{
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  align-self: flex-start;
+  margin: 40px 15px 0px 0px;
+  
+}
+
+.logo-right {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  align-self: flex-start;
+  margin: 40px 0px 0px 15px;
+  
 }
 
 #start {
@@ -65,15 +124,101 @@ body {
 
 }
 
-button:focus {
-  outline: none;
+#win {
+  position: absolute;
+  margin: 0px 0px 500px 0px;
 }
 
-h1 {
-  font-size: 200px;
+#game-over {
+  position: absolute;
+  text-align: center;
+  font-size: 140px;
+  bottom: 205px;
+  left: 40px;
+  
 }
 
 #win {
   position: absolute;
-  margin: 0px 0px 500px 0px;
+  text-align: center;
+  font-size: 150px;
+  top: 335px;
+  left: 140px;
+}
+
+
+
+#score-div {
+  font-size: 40px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+  margin: 0px 20px 50px 0px;
+  
+}
+
+#lives-div {
+  font-size: 40px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+  margin: 0px 0px 50px 20px;
+  
+}
+
+#left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  
+}
+
+#right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#lives {
+  /* display: flex;
+  justify-content: center; */
+  font-size: 55px;
+}
+
+#score {
+  display: flex;
+  justify-content: center;
+  font-size: 55px;
+}
+
+.break {
+  margin: 0px 0px 10px 0px;
+}
+
+#blinkme {
+  animation: blinker 1.5s linear infinite;
+  color: rgb(14, 186, 243);
+  
+}
+@keyframes blinker {
+40% {
+ opacity: 0;
+}
+}
+
+.blinkme {
+  animation: blinker 0.8s linear infinite;
+  color: rgb(14, 186, 243);
+  
+}
+@keyframes blinker {
+40% {
+ opacity: 0;
+}
 }

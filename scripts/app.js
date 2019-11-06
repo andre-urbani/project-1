@@ -1,9 +1,16 @@
 function main() {
 
+  const gameOver = document.querySelector('#game-over')
+  const youWin = document.querySelector('#win')
+  const body = document.querySelector('#body')
+
+  youWin.parentNode.removeChild(youWin)
+  gameOver.parentNode.removeChild(gameOver)
+
   document.addEventListener('keyup', function (e) {
     if (13 === e.keyCode) {
 
-      var elem = document.querySelector('.enter')
+      const elem = document.querySelector('.enter')
       elem.parentNode.removeChild(elem)
 
       const width = 20
@@ -80,12 +87,12 @@ function main() {
 
                   alienCells[aliens[i]].classList.remove('aliens')
                   aliens.splice(i, 1)
-
                   return aliens
 
                 }
 
               if (score === 3200) {
+                body.appendChild(youWin)
 
                 alienCells = []
                 bombCells = []
@@ -98,111 +105,113 @@ function main() {
         }
       })
 
-      const start = document.querySelector('#start')
-      start.addEventListener('click', () => {
 
-        setInterval(() => {
-          let bomb = aliens[Math.floor(Math.random() * aliens.length)] + 20
-          bombCells[bomb].classList.add('bomb')
-          const bombInterval = setInterval(() => {
-            bombCells[bomb].classList.remove('bomb')
-            bomb += 20
 
-            if (bomb >= 400) {
+      setInterval(() => {
+        let bomb = aliens[Math.floor(Math.random() * aliens.length)] + 20
+        bombCells[bomb].classList.add('bomb')
+        const bombInterval = setInterval(() => {
+          bombCells[bomb].classList.remove('bomb')
+          bomb += 20
+
+          if (bomb >= 400) {
+            clearInterval(bombInterval)
+          } else bombCells[bomb].classList.add('bomb')
+          if (bomb === player) {
+            displayLives.innerHTML = (lives -= 1)
+            console.log('good')
+          }
+
+          if (lives === 0) {
+            body.appendChild(gameOver)
+            alienCells = []
+            bombCells = []
+            playerCells = []
+            bulletCells = []
+          }
+
+          for (let i = 0; i < aliens.length; i++)
+            if (player === aliens[i]) {
+              body.appendChild(gameOver)
               clearInterval(bombInterval)
-            } else bombCells[bomb].classList.add('bomb')
-            if (bomb === player) {
-              displayLives.innerHTML = (lives -= 1)
-              console.log('good')
-            }
-
-            if (lives === 0) {
               alienCells = []
               bombCells = []
               playerCells = []
               bulletCells = []
             }
 
-            for (let i = 0; i < aliens.length; i++)
-              if (player === aliens[i]) {
-                clearInterval(bombInterval)
-                alienCells = []
-                bombCells = []
-                playerCells = []
-                bulletCells = []
-              }
-
-            for (let i = 0; i < aliens.length; i++)
-              if (aliens[i] > 359) {
-                grid.parentNode.removeChild(grid)
-                clearInterval(bombInterval)
-                // bombCells[bomb].classList.remove('bomb')
-                alienCells = []
-                bombCells = []
-                playerCells = []
-                bulletCells = []
-              }
+          for (let i = 0; i < aliens.length; i++)
+            if (aliens[i] > 359) {
+              // grid.parentNode.removeChild(grid)
+              clearInterval(bombInterval)
+              // bombCells[bomb].classList.remove('bomb')
+              body.appendChild(gameOver)
+              alienCells = []
+              bombCells = []
+              playerCells = []
+              bulletCells = []
+            }
 
 
-          }, Math.floor(Math.random() * 50 - (50 - 75)))
-        }, Math.floor(Math.random() * 1000 - (1000 - 1500)))
+        }, Math.floor(Math.random() * 50 - (50 - 75)))
+      }, Math.floor(Math.random() * 1000 - (1000 - 1500)))
 
-        // alien block movement
+      // alien block movement
 
-        function moveRight() {
+      function moveRight() {
 
-          // eslint-disable-next-line for-direction
-          for (let i = aliens.length - 1; i < aliens.length; i--) {
-            alienCells[aliens[i]].classList.remove('aliens')
-            aliens[i] = aliens[i] + 1
-            alienCells[aliens[i]].classList.add('aliens')
-          }
+        // eslint-disable-next-line for-direction
+        for (let i = aliens.length - 1; i < aliens.length; i--) {
+          alienCells[aliens[i]].classList.remove('aliens')
+          aliens[i] = aliens[i] + 1
+          alienCells[aliens[i]].classList.add('aliens')
         }
+      }
 
-        function moveDown() {
+      function moveDown() {
 
-          // eslint-disable-next-line for-direction
-          for (let i = aliens.length - 1; i < aliens.length; i--) {
-            alienCells[aliens[i]].classList.remove('aliens')
-            aliens[i] = aliens[i] + 20
-            alienCells[aliens[i]].classList.add('aliens')
-          }
+        // eslint-disable-next-line for-direction
+        for (let i = aliens.length - 1; i < aliens.length; i--) {
+          alienCells[aliens[i]].classList.remove('aliens')
+          aliens[i] = aliens[i] + 20
+          alienCells[aliens[i]].classList.add('aliens')
         }
+      }
 
-        function moveLeft() {
+      function moveLeft() {
 
-          for (let i = 0; i < aliens.length; i++) {
-            alienCells[aliens[i]].classList.remove('aliens')
-            aliens[i] = aliens[i] - 1
-            alienCells[aliens[i]].classList.add('aliens')
-          }
+        for (let i = 0; i < aliens.length; i++) {
+          alienCells[aliens[i]].classList.remove('aliens')
+          aliens[i] = aliens[i] - 1
+          alienCells[aliens[i]].classList.add('aliens')
         }
+      }
 
-        setTimeout(() => {
-          moveRight()
-        }, 1000)
-        setTimeout(() => {
-          moveDown()
-        }, 2000)
-        setTimeout(() => {
-          moveLeft()
-        }, 3000)
+      setTimeout(() => {
+        moveRight()
+      }, 1000)
+      setTimeout(() => {
+        moveDown()
+      }, 2000)
+      setTimeout(() => {
+        moveLeft()
+      }, 3000)
 
-        function timeout() {
-          setInterval(() => {
-            setTimeout(() => {
-              moveRight()
-            }, 1000)
-            setTimeout(() => {
-              moveDown()
-            }, 2000)
-            setTimeout(() => {
-              moveLeft()
-            }, 3000)
+      function timeout() {
+        setInterval(() => {
+          setTimeout(() => {
+            moveRight()
+          }, 1000)
+          setTimeout(() => {
+            moveDown()
+          }, 2000)
+          setTimeout(() => {
+            moveLeft()
           }, 3000)
-        }
-        timeout()
-      })
+        }, 3000)
+      }
+      timeout()
+
     }
   })
 }
