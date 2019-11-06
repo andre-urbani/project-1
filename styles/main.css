@@ -12,7 +12,7 @@ body {
 
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 0 rgba(201, 81, 1, 0.5);
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -67,4 +67,13 @@ body {
 
 button:focus {
   outline: none;
+}
+
+h1 {
+  font-size: 200px;
+}
+
+#win {
+  position: absolute;
+  margin: 0px 0px 500px 0px;
 }
