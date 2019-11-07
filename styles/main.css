@@ -116,12 +116,21 @@ section {
   
 }
 
+#reset {
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  width: 100%;
+  bottom: 300px;
+  background-color: Transparent;
+  border: none;
+  font-size: 20px;
+  color: rgb(14, 186, 243);
+  text-shadow: 2px 0 0 rgb(241, 172, 67);
+}
+
 #start {
   width: 80px;
   height: 20px;
-
-
-
 }
 
 #win {
@@ -135,7 +144,6 @@ section {
   font-size: 140px;
   bottom: 205px;
   left: 40px;
-  
 }
 
 #win {
@@ -145,8 +153,6 @@ section {
   top: 335px;
   left: 140px;
 }
-
-
 
 #score-div {
   font-size: 40px;

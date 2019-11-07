@@ -1,11 +1,18 @@
+/* eslint-disable no-inner-declarations */
 function main() {
 
   const gameOver = document.querySelector('#game-over')
   const youWin = document.querySelector('#win')
   const body = document.querySelector('#body')
+  const reset = document.querySelector('#reset')
 
   youWin.parentNode.removeChild(youWin)
   gameOver.parentNode.removeChild(gameOver)
+  reset.parentNode.removeChild(reset)
+
+  reset.addEventListener('click', () => {
+    window.location.reload()
+  })
 
   document.addEventListener('keyup', function (e) {
     if (13 === e.keyCode) {
@@ -42,7 +49,6 @@ function main() {
         alienCells[aliens[i]].classList.add('aliens')
       }
 
-
       document.addEventListener('keyup', (e) => {
         e.preventDefault()
         switch (e.keyCode) {
@@ -67,11 +73,19 @@ function main() {
           }
 
           case 32: {
+
+
+
+
             let bullet = player - 20
             bulletCells[bullet].classList.add('bullet')
             const bulletInterval = setInterval(() => {
               bulletCells[bullet].classList.remove('bullet')
               bullet = bullet - 20
+
+
+
+
 
               // debugger
               if (bullet <= 0) {
@@ -93,19 +107,24 @@ function main() {
 
               if (score === 3200) {
                 body.appendChild(youWin)
-
+                body.appendChild(reset)
+                const audio = document.querySelector('#sounds')
+                audio.src = 'sounds/270330__littlerobotsoundfactory__jingle-achievement-01.wav'
+                audio.play()
                 alienCells = []
                 bombCells = []
                 playerCells = []
                 bulletCells = []
 
               }
+
             }, 100)
+
           }
+
         }
+
       })
-
-
 
       setInterval(() => {
         let bomb = aliens[Math.floor(Math.random() * aliens.length)] + 20
@@ -124,20 +143,28 @@ function main() {
 
           if (lives === 0) {
             body.appendChild(gameOver)
+            body.appendChild(reset)
             alienCells = []
             bombCells = []
             playerCells = []
             bulletCells = []
+            const audio = document.querySelector('#sounds')
+            audio.src = 'sounds/270329__littlerobotsoundfactory__jingle-lose-00.wav'
+            audio.play()
           }
 
           for (let i = 0; i < aliens.length; i++)
             if (player === aliens[i]) {
               body.appendChild(gameOver)
+              body.appendChild(reset)
               clearInterval(bombInterval)
               alienCells = []
               bombCells = []
               playerCells = []
               bulletCells = []
+              const audio = document.querySelector('#sounds')
+              audio.src = 'sounds/270329__littlerobotsoundfactory__jingle-lose-00.wav'
+              audio.play()
             }
 
           for (let i = 0; i < aliens.length; i++)
@@ -146,10 +173,12 @@ function main() {
               clearInterval(bombInterval)
               // bombCells[bomb].classList.remove('bomb')
               body.appendChild(gameOver)
+              body.appendChild(reset)
               alienCells = []
               bombCells = []
               playerCells = []
               bulletCells = []
+
             }
 
 
@@ -158,6 +187,7 @@ function main() {
 
       // alien block movement
 
+      // eslint-disable-next-line no-inner-declarations
       function moveRight() {
 
         // eslint-disable-next-line for-direction
@@ -197,6 +227,7 @@ function main() {
         moveLeft()
       }, 3000)
 
+      // eslint-disable-next-line no-inner-declarations
       function timeout() {
         setInterval(() => {
           setTimeout(() => {
@@ -213,7 +244,9 @@ function main() {
       timeout()
 
     }
+
   })
+
 }
 
 document.addEventListener('DOMContentLoaded', main)
