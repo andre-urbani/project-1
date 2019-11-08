@@ -9,7 +9,7 @@ body {
   justify-content: center;
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  color: rgb(14, 186, 243);
+  color: rgb(0, 191, 255);
   background-color: black;
   /* text-shadow: 2px 0 0 rgb(125, 212, 241); */
   text-shadow: 2px 0 0 rgb(241, 172, 67);
@@ -19,7 +19,7 @@ body {
 .grid {
   background-image: url(http://giphygifs.s3.amazonaws.com/media/FlodpfQUBSp20/giphy.gif);
   align-items: center;
-  box-shadow: 0 0 20px 0 rgb(14, 186, 243);
+  box-shadow: 0 0 20px 0 rgb(0, 191, 255);
   margin: 0px 35px;
   display: flex;
   flex-grow: 1;
@@ -126,7 +126,7 @@ section {
   background-color: Transparent;
   border: none;
   font-size: 20px;
-  color: rgb(14, 186, 243);
+  color: rgb(0, 191, 255);
   text-shadow: 2px 0 0 rgb(241, 172, 67);
 }
 
@@ -223,7 +223,7 @@ section {
 
 .blinkme {
   animation: blinker 0.8s linear infinite;
-  color: rgb(14, 186, 243);
+  color: rgb(0, 191, 255);
   
 }
 @keyframes blinker {

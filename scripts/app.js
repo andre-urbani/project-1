@@ -14,11 +14,8 @@ function main() {
     window.location.reload()
   })
 
-
   document.addEventListener('keyup', function (e) {
     if (13 === e.keyCode) {
-
-
 
       const elem = document.querySelector('.enter')
       elem.parentNode.removeChild(elem)
@@ -78,8 +75,7 @@ function main() {
           }
 
           case 32: {
-
-
+            
             let bullet = player - 20
             bulletCells[bullet].classList.add('bullet')
             const bulletInterval = setInterval(() => {
@@ -103,15 +99,7 @@ function main() {
                   bulletCells[bullet].classList.remove('bullet')
                   alienCells[aliens[i]].classList.remove('aliens')
                   aliens.splice(i, 1)
-                  
                 }
-                
-
-              // for (let i = 0; i < aliens.length; i++)
-              
-                // if (bullet === aliens[i]) {
-                  
-
 
               if (aliens.length === 0) {
                 body.appendChild(youWin)
@@ -125,13 +113,9 @@ function main() {
                 bulletCells = []
                 explosionCells = []
               }
-
             }, 100)
-
           }
-
         }
-
       })
 
       setInterval(() => {
@@ -207,10 +191,7 @@ function main() {
               playerCells = []
               bulletCells = []
               explosionCells = []
-              
             }
-
-
         }, Math.floor(Math.random() * 50 - (50 - 75)))
       }, Math.floor(Math.random() * 1000 - (1000 - 1500)))
 
@@ -271,11 +252,7 @@ function main() {
         }, 3000)
       }
       timeout()
-
     }
-
   })
-
 }
-
 document.addEventListener('DOMContentLoaded', main)
