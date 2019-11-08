@@ -14,8 +14,11 @@ function main() {
     window.location.reload()
   })
 
+
   document.addEventListener('keyup', function (e) {
     if (13 === e.keyCode) {
+
+      
 
       const elem = document.querySelector('.enter')
       elem.parentNode.removeChild(elem)
@@ -75,35 +78,26 @@ function main() {
           case 32: {
 
 
-
-
             let bullet = player - 20
             bulletCells[bullet].classList.add('bullet')
             const bulletInterval = setInterval(() => {
               bulletCells[bullet].classList.remove('bullet')
               bullet = bullet - 20
 
-
-
-
-
               // debugger
               if (bullet <= 0) {
                 clearInterval(bulletInterval)
               } else bulletCells[bullet].classList.add('bullet')
 
-              // const pos = aliens + 20
               for (let i = 0; i < aliens.length; i++)
                 if (bullet === aliens[i]) {
                   displayScore.innerHTML = (score += 25)
                   clearInterval(bulletInterval)
                   bulletCells[bullet].classList.remove('bullet')
-
                   alienCells[aliens[i]].classList.remove('aliens')
                   aliens.splice(i, 1)
-                  return aliens
-
                 }
+
 
               if (score === 3200) {
                 body.appendChild(youWin)
@@ -115,7 +109,6 @@ function main() {
                 bombCells = []
                 playerCells = []
                 bulletCells = []
-
               }
 
             }, 100)
@@ -178,7 +171,6 @@ function main() {
               bombCells = []
               playerCells = []
               bulletCells = []
-
             }
 
 
