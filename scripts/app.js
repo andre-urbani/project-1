@@ -18,7 +18,7 @@ function main() {
   document.addEventListener('keyup', function (e) {
     if (13 === e.keyCode) {
 
-      
+
 
       const elem = document.querySelector('.enter')
       elem.parentNode.removeChild(elem)
@@ -30,6 +30,7 @@ function main() {
       let alienCells = []
       let bombCells = []
       let bulletCells = []
+      let explosionCells = []
       const aliens = [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]
       let player = 390
       const displayScore = document.querySelector('#score')
@@ -44,6 +45,7 @@ function main() {
         alienCells.push(cell) //same as above but stores the alien position
         bulletCells.push(cell)
         bombCells.push(cell)
+        explosionCells.push(cell)
       }
 
       playerCells[player].classList.add('player')
@@ -91,15 +93,27 @@ function main() {
 
               for (let i = 0; i < aliens.length; i++)
                 if (bullet === aliens[i]) {
+                  let explosion = aliens[i]
+                  explosionCells[explosion].classList.add('explosion')
+                  setTimeout(() => {
+                    explosionCells[explosion].classList.remove('explosion')
+                  }, 200)
                   displayScore.innerHTML = (score += 25)
                   clearInterval(bulletInterval)
                   bulletCells[bullet].classList.remove('bullet')
                   alienCells[aliens[i]].classList.remove('aliens')
                   aliens.splice(i, 1)
+                  
                 }
+                
+
+              // for (let i = 0; i < aliens.length; i++)
+              
+                // if (bullet === aliens[i]) {
+                  
 
 
-              if (score === 3200) {
+              if (aliens.length === 0) {
                 body.appendChild(youWin)
                 body.appendChild(reset)
                 const audio = document.querySelector('#sounds')
@@ -109,6 +123,7 @@ function main() {
                 bombCells = []
                 playerCells = []
                 bulletCells = []
+                explosionCells = []
               }
 
             }, 100)
@@ -122,6 +137,7 @@ function main() {
       setInterval(() => {
         let bomb = aliens[Math.floor(Math.random() * aliens.length)] + 20
         bombCells[bomb].classList.add('bomb')
+        const livesShake = document.querySelector('#lives-div')
         const bombInterval = setInterval(() => {
           bombCells[bomb].classList.remove('bomb')
           bomb += 20
@@ -130,7 +146,24 @@ function main() {
             clearInterval(bombInterval)
           } else bombCells[bomb].classList.add('bomb')
           if (bomb === player) {
+            displayScore.innerHTML = (score -= 100)
             displayLives.innerHTML = (lives -= 1)
+            livesShake.animate([
+              // keyframes
+              { transform: 'translate3d(-3px, 0, 0)' },
+              { transform: 'translate3d(4px, 0, 0)' },
+              { transform: 'translate3d(-6px, 0, 0)' },
+              { transform: 'translate3d(6px, 0, 0)' },
+              { transform: 'translate3d(-6px, 0, 0)' },
+              { transform: 'translate3d(6px, 0, 0)' },
+              { transform: 'translate3d(-6px, 0, 0)' },
+              { transform: 'translate3d(4px, 0, 0)' },
+              { transform: 'translate3d(-3px, 0, 0)' }
+            ], {
+              // timing options
+              duration: 0.5,
+              iterations: 1000
+            })
             console.log('good')
           }
 
@@ -141,6 +174,7 @@ function main() {
             bombCells = []
             playerCells = []
             bulletCells = []
+            explosionCells = []
             const audio = document.querySelector('#sounds')
             audio.src = 'sounds/270329__littlerobotsoundfactory__jingle-lose-00.wav'
             audio.play()
@@ -155,6 +189,7 @@ function main() {
               bombCells = []
               playerCells = []
               bulletCells = []
+              explosionCells = []
               const audio = document.querySelector('#sounds')
               audio.src = 'sounds/270329__littlerobotsoundfactory__jingle-lose-00.wav'
               audio.play()
@@ -171,6 +206,8 @@ function main() {
               bombCells = []
               playerCells = []
               bulletCells = []
+              explosionCells = []
+              
             }
 
 

@@ -46,14 +46,16 @@ body {
 }
 
 .grid div.explosion {
-  background-image: url(../images/explosion-sprite-gif-10.gif);
-  background-size: 100%;
+  background-image: url(../images/PinClipart.com_explosion-clipart_310561.png);
+  background-size: 95%;
   background-position-x: 0;
   background-position-y: 0;
+  
+  
 }
 
 .grid div.aliens {
-  background-image: url(../images/Vp3M.gif);
+  background-image: url(../images/kisspng-space-invaders-arcade-game-video-game-pac-man-space-invaders-5acb3c22e766f0.4038684515232686429478.png);
   background-size: 100%;
   background-position-x: 0;
   background-position-y: 0;
