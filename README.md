@@ -58,9 +58,15 @@ An event listener was also used for the player bullets (spacebar) which triggers
 Set intervals were also used for the alien movement and the bombs periodically dropped by the aliens. Alien movement proved to be especially tricky, and in hindsight I realised I could have gone with a more efficient method through the use of if statements to make the aliens move in formation in the opposite direction upon reaching the end of the grid on either side.
 
 ```
-  function moveDown() {
+  function moveRight() {
+    for (let i = aliens.length - 1; i < aliens.length; i--) {
+      alienCells[aliens[i]].classList.remove('aliens')
+      aliens[i] = aliens[i] + 1
+      alienCells[aliens[i]].classList.add('aliens')
+    }
+  }
 
-    // eslint-disable-next-line for-direction
+  function moveDown() {
     for (let i = aliens.length - 1; i < aliens.length; i--) {
       alienCells[aliens[i]].classList.remove('aliens')
       aliens[i] = aliens[i] + 20
@@ -69,7 +75,6 @@ Set intervals were also used for the alien movement and the bombs periodically d
   }
 
   function moveLeft() {
-
     for (let i = 0; i < aliens.length; i++) {
       alienCells[aliens[i]].classList.remove('aliens')
       aliens[i] = aliens[i] - 1
@@ -87,7 +92,6 @@ Set intervals were also used for the alien movement and the bombs periodically d
     moveLeft()
   }, 3000)
 
-  // eslint-disable-next-line no-inner-declarations
   function timeout() {
     setInterval(() => {
       setTimeout(() => {
@@ -101,6 +105,8 @@ Set intervals were also used for the alien movement and the bombs periodically d
       }, 3000)
     }, 3000)
   }
+  timeout()
+}
 ``` 
 
 ### Hit detection
