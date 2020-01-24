@@ -113,7 +113,7 @@ Set intervals were also used for the alien movement and the bombs periodically d
 
 For both the bullet hitting an alien, and a bomb landing on the player, I used an if statement within a for loop to detect if the bomb/player bullet/alien index on the grid matched, or contained the same index for the aliens array, then remove a life or add 25 points.
 
-With the collision of the bullet and alien there was a further function required, that being the destruction/removal of the hit alien from the game-board. For this I used splice on the alien array to remove the specified alien.
+With the collision of the bullet and alien there was a further function required, that being the destruction/removal of the hit alien from the grid. For this I used splice on the alien array to remove the specified alien.
 
 Hit detection code for player bullet hitting alien is shown below.
 
@@ -151,5 +151,5 @@ I am very happy with the final result and what I managed to achieve during the p
 ### Challenges
 
 - Programming the aliens to move in formation, even when aliens are destroyed and removed from the grid, without affecting the overall structure
-- Hit detection adnd successfully identifying when the laster hits the alien and therefore destroys the alien, removing it from the grid
+- Hit detection and successfully identifying when the laster hits the alien and therefore destroys the alien, removing it from the grid
 
