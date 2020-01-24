@@ -47,7 +47,7 @@ Firing: 'Spacebar'
 ### Grid & Starting Layout
 The initial process of creating a grid was achieved by firstly creating a div element, giving each of these the class of 'grid' and appending them to a grid, then pushing the grid into an empty array. This gave me an empty grid with the id of each div set as its index.
 
-A similar process was then repeated for assigning the individual cells to represent each object I required for the gameplay: player, enemies, laser & bomb. The class would then be assigned to a position/positions on the grid based on an index.
+A similar process was then repeated for assigning the individual cells to represent each object I required for the gameplay: player, aliens, bullet & bomb. The class would then be assigned to a position/positions on the grid based on an index.
 
 ### Controlling movement
 
@@ -55,7 +55,7 @@ The first movement aspect to be developed was for the player. I used an event li
 
 An event listener was also used for the player bullets (spacebar) which triggers a set interval for the bullet to move up the grid by 20 spaces every 100ms, giving the illusion of a fluidly moving bullet.
 
-Set intervals were also used for the alien movement and the bombs periodically dropped by the aliens. Alien movement proved to be especially tricky, and in hindsight I realised I could have gone with a more efficient method through the use of if statements to make the aliens move in formation in the opposite direction upon reaching the end of the grid on either side.
+Set intervals were also used for the alien movement and the bombs periodically dropped by the aliens.
 
 ```
   function moveRight() {
