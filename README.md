@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Space Invadors is my reproduction of the classic arcade game, developed using vanilla JavaScript only. This was my first project on General Assembly's Software Engineering Immersive Course, and was an individual project after 3 weeks of learning HTML, CSS and JavaScript.
+Space Invaders is my reproduction of the classic arcade game, developed using vanilla JavaScript only. This was my first project on General Assembly's Software Engineering Immersive Course, and was an individual project after 3 weeks of learning HTML, CSS and JavaScript.
 
 You can try it out yourself [here](https://andre-urbani.github.io/project-1/)
 
