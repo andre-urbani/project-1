@@ -89,7 +89,7 @@ function main() {
 
               for (let i = 0; i < aliens.length; i++)
                 if (bullet === aliens[i]) {
-                  let explosion = aliens[i]
+                  const explosion = aliens[i]
                   explosionCells[explosion].classList.add('explosion')
                   setTimeout(() => {
                     explosionCells[explosion].classList.remove('explosion')
