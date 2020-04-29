@@ -181,9 +181,7 @@ function main() {
 
           for (let i = 0; i < aliens.length; i++)
             if (aliens[i] > 359) {
-              // grid.parentNode.removeChild(grid)
               clearInterval(bombInterval)
-              // bombCells[bomb].classList.remove('bomb')
               body.appendChild(gameOver)
               body.appendChild(reset)
               alienCells = []
